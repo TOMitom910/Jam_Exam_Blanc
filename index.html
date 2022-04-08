@@ -1,24 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<meta charset="utf-8">
-	<link rel="icon" type="image/x-icon" href="images/TOM.png" />
-	<!--encodage de la page-->
-	<style type="text/css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="entrainement_cycle_1/css/page_css.css">
 
-		 body
-        {
-            font-family: comic sans ms;
-            background-color: black;
-            color: white;
-        }
-    </style>
+    <title>roue de la joie</title>
 </head>
-	<header>
-		<img src="images/TOM.png" width="150">
-	</header>
-<body>
-	<a href="entrainement_cycle_1/html/index.html">voila la page</a>
+<body onload="Age()">
+    <header>     
+        <img class="custom_img" src="entrainement_cycle_1/image/roulette.png" alt="roulette de casino">
+        <div>Simulation d'un jeu d'argent</div>
+            <nav>
+                <ul class="custom_list">
+                    <li><a href="#">Jeu</a></li>
+                    <li><a href="entrainement_cycle_1/simulation_jeu_d_argent_inventaire.html">Inventaire</a></li>
+                </ul>
+            </nav>
+        <a class="contacter" href="mailto:celiademange57@gmail.com"><button>Nous contacter</button></a>
+    </header>
+    <main>
+        <section>
+            <p>
+                Entrez le montant à miser:
+                <input type="number" name="mise" id="mise" onchange="argent_total()" placeholder="Insérez ici">
+            </p>
+    <div class="mises"><button onclick="mise()" class="btn">Misez pour jouer!</button></div>
+    <div class="mises"><button onclick="misejeton()" class="btn">Utilisez vos tickets pour jouer!</button></div>
+        </section>
+
+        <section>
+            <div class="titre"><h1> Voici Ramdom Spinner</h1></div> <!-- le titre est centrer sur le milieu de la page --> 
+            <div id="mainbox" class="mainbox"> <!-- ce div est la roue de la joie -->
+                <div id="box" class="box"> <!-- ce div contient les 4 carreaux -->
+                    <div class="box1"> 
+                        <span class="span1"><b>Rien</b></span> <!-- Carreau 1 -->
+                        <span class="span2"><b>Lavage Auto</b></span> <!-- Carreau 2 -->
+                        <span class="span3"><b>10 €</b></span> <!-- Carreau 3 -->
+                        <span class="span4"><b>Rien</b></span> <!-- Carreau 4 -->
+                    </div>
+                    <div class="box2">
+                        <span class="span1"><b>3 €</b></span> <!-- Copie du arreau 1 -->
+                        <span class="span2"><b>4 Couleur</b></span> <!-- Copie du Carreau 2 -->
+                        <span class="span3"><b>1 €</b></span> <!-- Copie du Carreau 3 -->
+                        <span class="span4"><b>Ticket Resto</b></span> <!-- Copie du carreau 4 -->
+                    </div>
+                </div>
+                <button class="spin" onclick="myfunction()">Tourne</button>
+            </div>
+            <div class="titre test"><h1> Voici le Pinball</h1></div>
+            <iframe src="entrainement_cycle_1/jeu/TP_Eval_Blanc_5/index.html" width="270" height="480"></iframe>
+            
+        </section>
+        
+    </main>
+    <footer>
+        <address>
+        <a href="mailto:celiademange57@gmail.com">Nous contacter</a>
+        </address>
+        <p>Créé par Célia, Tristan, Tom.L et Tom.K</p>
+    </footer>
+  <script src="entrainement_cycle_1/js/script.js"></script>
 </body>
 </html>
