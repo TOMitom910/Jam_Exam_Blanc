@@ -268,5 +268,6 @@ h1{
 		text-align: center;
 	}
 .ok{
-	margin : 50 %;
+	text-align: center;
+	margin : auto;
 }
