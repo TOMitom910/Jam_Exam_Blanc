@@ -1,0 +1,269 @@
+/* CSS pour la roue */
+*{ /* paramètre de tous les éléments*/
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+.mainbox{ /* paramètre de la roue */
+  position: relative;
+  width: 500px;
+  height: 500px;
+  margin-bottom: 30px;
+}
+
+.mainbox:after{ /*paramètre de la flèche */
+  position: absolute;
+  content: '';
+  width: 32px;
+  height: 32px;
+  background: url('../image/fleche.png') no-repeat;
+  background-size: 32px;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.box{ /* gère la première partie de la roue */
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 50%;
+  border: 10px solid #fff;
+  overflow: hidden;
+  transition: all ease 5s;
+}
+
+span{ /* paramètre des carreaux */
+  width: 50%;
+  height: 50%;
+  display: inline-block;
+  position: absolute;
+}
+
+.span1{ /* délimitation du carreau 1 */
+  clip-path: polygon(0 92%, 100% 50%, 0 8%);
+  background-color:  #4D2497;
+  top: 120px;
+  left: 0;
+}
+
+.span2{ /* délimitation du carreau 2 */
+  clip-path: polygon(100% 92%, 0 50%, 100% 8%);
+  background-color: #23E6E6;
+  top: 120px;
+  right: 0;
+}
+
+.span3{ /* délimitation du carreau 3 */
+  clip-path: polygon(50% 0%, 8% 100%, 92% 100%);
+  background-color: #E63FA5;
+  bottom: 0;
+  left: 120px;
+}
+
+.span4{ /* délimitation du carreau 4 */
+  clip-path: polygon(50% 100%, 92% 0, 8% 0);
+  background-color: #E4286C;
+  top: 0;
+  left: 120px;
+}
+
+.box1 .span3 b{ /* paramètre du texte du carreau 3 de la première partie de la roue */
+   transform: translate(-50%, -50%) rotate(-270deg);
+}
+.box1 .span1 b,
+.box2 .span1 b{  /* paramètre du texte du carreau 1 de la deuxième partie de la roue */
+  transform: translate(-50%, -50%) rotate(185deg);
+}
+.box2 .span3 b{  /* paramètre du texte du carreau 3 de la deuxième partie de la roue */
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.box1 .span4 b,
+.box2 .span4 b{  /* paramètre du texte du carreau 4 de la deuxième partie de la roue */
+  transform: translate(-50%, -50%) rotate(-85deg);
+}
+
+.box2{ /* paramètre de la deuxième partie de la roue */
+  width: 100%;
+  height: 100%;
+  transform: rotate(-135deg);
+}
+
+span b{ /* paramètre de la mise en valeur du texte */
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.spin{ /* paramètre du bouton de lancement */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  background-color: #001aff;
+  color: #fff;
+  box-shadow: 0 5px 20px #000;
+  font-weight: bold;
+  font-size: 22px;
+  cursor: pointer;
+}
+.spin:active{ /* paramètre de l'appuie du bouton */
+  width: 70px;
+  height: 70px;
+  font-size: 20px;
+}
+
+.mainbox.animate:after{ /* paramètre de la durée de l'animation de la fleche */
+  animation: animateArrow 0.7s ease infinite;
+}
+@keyframes animateArrow{ /* paramètre du déplacement de la flèche */
+  50%{
+    right: -40px;
+  }
+}
+
+/*CSS de la page */
+/*on importe le style de police voulu*/
+
+@import url('https://fonts.googleapis.com/css2?family=Monda&display=swap');
+
+body{
+	background-image: url(../image/background.png) ;
+	background-attachment: fixed;
+	font-family: 'Monda', sans-serif;
+	color: white;
+}
+
+li,a, button{
+	font-family: 'Monda', sans-serif;
+	font-weight: 500;
+	font-size: 16px;
+	text-decoration: none;
+	color: #32E3EB ;
+}
+
+
+header{
+	background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(235, 50,145, 0.5));
+	color: white;
+	border-style: double;
+	border-color: red;
+
+	display: flex;
+	justify-content: flex-end;/*permet de déplacer chaque élément tout à droite de la page*/
+	align-items: center;
+	padding: 10px 10%;
+}
+
+header div{
+	margin: auto;
+}
+
+footer{
+	background-image: linear-gradient(rgba(235, 50,145, 0.5), rgba(0, 0, 255, 0.5));
+	color: lightgray;
+	text-align: center;
+	border-style: double;
+	border-color: red;
+}
+
+.custom_img{
+	margin-right: auto;
+}
+
+.custom_list{
+	list-style: none;
+
+}
+
+.custom_list li{
+	display: inline-block;
+	padding: 0px 20px;
+}
+
+.custom_list li a{/*permet de faire une transition entre la couleur à la base et la nouvelle que l'on souhaite*/
+	transition: all 0.3s ease 0s;
+}
+
+.custom_list li a:hover{
+	color: #FFA2ED ;
+}
+
+footer a{
+	transition: all 0.3s ease 0s;
+}
+
+footer a:hover{
+	color: #FFA2ED ;
+}
+
+header button{
+	padding: 9px 25px;
+	background-color: #A728D6;
+	border: none;
+	border-radius: 50px;
+	transition: all 0.3s ease 0s;
+}
+
+header button:hover{
+	background-color: #287ED6 ;
+	cursor: pointer;
+}
+
+.mises{
+	list-style: none;
+	text-align: center;
+	margin: auto;
+}
+
+.mises li{
+	display: inline;
+	margin: 10% 10%;
+	
+}
+
+.mises button{
+	border-radius:25% ;
+	background-color: #27B3C3;
+	border-color: blue;
+	color: white;
+	transition: all 0.3s ease 0s;
+}
+
+.mises button:hover{
+	background-color: #279AC3;
+	cursor: pointer;
+}
+.btn{
+	margin-top: 20px;
+	}
+h1{
+	margin-left: 110px;
+	margin-bottom: 20px;
+	margin-top: 50px;
+	padding: auto;
+	text-align: center;
+}
+
+.titre{
+		display: flex;
+		margin: auto;
+		padding: auto;
+		text-align: center;
+	}
+h1{
+		text-align: center;
+	}
+
+.test{
+		text-align: center;
+	}
